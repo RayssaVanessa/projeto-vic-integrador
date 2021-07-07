@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:gravity="right"
+    android:orientation="vertical">
+
+
+    <ImageButton
+        android:id="@+id/btn_pesquisa2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="49dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="60dp"
+        android:background="#0D45494A"
+        android:src="@drawable/ic_baseline_search_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="318dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="40dp"
+        android:ems="16"
+        android:hint="Buscar Filme"
+        android:inputType="text"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="58dp"
+        tools:layout_editor_absoluteY="42dp" />
+
+
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="6dp"
+        android:src="@drawable/ic_baseline_horizontal_rule_24"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="93dp"
+        android:layout_marginTop="80dp"
+        />
+
+
+    <TextView
+        android:id="@+id/modoPesquisa"
+        android:layout_width="145dp"
+        android:layout_height="27dp"
+        android:gravity="center|left"
+        android:text="Modo pesquisa"
+        android:textColor="#223334"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="107dp" />
+
+    <TextView
+        android:id="@+id/voltar_inicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Voltar ao início"
+        android:textColor="#11C76F"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="134dp" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="310dp"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="145dp"
+        tools:listitem="@layout/item_genre" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="158dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_horizontal|top"
+        android:layout_margin="142dp"
+        app:srcCompat="@drawable/ic_not_found__1_"
+        tools:layout_editor_absoluteX="112dp"
+        tools:layout_editor_absoluteY="206dp" />
+
+    <TextView
+        android:layout_width="212dp"
+        android:layout_height="28dp"
+        android:gravity="center|center_horizontal"
+        android:text="Esse filme não existe"
+        android:textColor="#223334"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="90dp"
+        tools:layout_editor_absoluteY="409dp" />
+
+    <TextView
+        android:layout_width="356dp"
+        android:layout_height="43dp"
+        android:gravity="center_horizontal"
+        android:text="Não conseguimos encontrar o filme que voce procura. Por favor, refaça sua busca."
+        android:textColor="#737599"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="446dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

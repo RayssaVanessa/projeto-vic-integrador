@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/errogenerico"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_baseline_close_24"
+        app:tint="#000000" />
+
+    <ImageView
+        android:id="@+id/icone_falha"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="42dp"
+        android:foregroundGravity="center_horizontal"
+        android:padding="32dp"
+        app:srcCompat="@drawable/ic_connection" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="34dp"
+        android:text="O sistema falhou"
+        android:textColor="#223334"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/msg_erro"
+        android:layout_width="384dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:text="Por algum motivo, não foi possível processar com essa solicitação. Por favor, tente novamente."
+        android:textColor="#737599"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tentar_novamente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="42dp"
+        android:text="Tentar novamente"
+        android:textColor="#11C76F"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/icone_rule"
+        android:layout_width="85dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/ic_baseline_horizontal_rule_24" />
+</LinearLayout>
