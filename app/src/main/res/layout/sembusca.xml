@@ -5,18 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
-    android:gravity="right"
     android:orientation="vertical">
+
 
 
     <ImageButton
         android:id="@+id/btn_pesquisa2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginVertical="49dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="42dp"
         android:background="#0D45494A"
         android:src="@drawable/ic_baseline_search_24"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,87 +23,104 @@
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="318dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="40dp"
-        android:ems="16"
+        android:layout_margin="16dp"
+        android:layout_marginRight="41dp"
         android:hint="Buscar Filme"
         android:inputType="text"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="58dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_pesquisa2"
         tools:layout_editor_absoluteY="42dp" />
 
 
-    <ImageButton
-        android:layout_width="40dp"
+    <View
+        android:id="@+id/view2"
+        android:layout_width="37dp"
         android:layout_height="6dp"
+        android:background="@color/ic_baseline_horizontal_rule_24.xml"
         android:src="@drawable/ic_baseline_horizontal_rule_24"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="93dp"
-        android:layout_marginTop="80dp"
-        />
+        app:layout_constraintStart_toStartOf="@+id/btn_pesquisa2"
+        tools:layout_editor_absoluteY="93dp" />
 
 
     <TextView
         android:id="@+id/modoPesquisa"
         android:layout_width="145dp"
+        android:layout_marginTop="5dp"
         android:layout_height="27dp"
-        android:gravity="center|left"
         android:text="Modo pesquisa"
         android:textColor="#223334"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="24dp"
+        app:layout_constraintStart_toStartOf="@+id/view2"
         tools:layout_editor_absoluteY="107dp" />
 
     <TextView
         android:id="@+id/voltar_inicio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="153dp"
+        android:layout_height="21dp"
         android:text="Voltar ao início"
         android:textColor="#11C76F"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="134dp" />
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/modoPesquisa"
+        app:layout_constraintTop_toBottomOf="@+id/modoPesquisa" />
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="310dp"
+        android:id="@+id/recyclerView3"
+        android:layout_width="match_parent"
         android:layout_height="56dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="50dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="145dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/voltar_inicio"
+        app:layout_constraintTop_toBottomOf="@+id/voltar_inicio"
         tools:listitem="@layout/item_genre" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="158dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center|center_horizontal|top"
-        android:layout_margin="142dp"
-        app:srcCompat="@drawable/ic_not_found__1_"
-        tools:layout_editor_absoluteX="112dp"
-        tools:layout_editor_absoluteY="206dp" />
+        android:layout_marginStart="161dp"
+        android:layout_marginEnd="162dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView3"
+        app:srcCompat="@drawable/ic_not_found__1_" />
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="212dp"
         android:layout_height="28dp"
+        android:layout_marginTop="58dp"
         android:gravity="center|center_horizontal"
         android:text="Esse filme não existe"
         android:textColor="#223334"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="90dp"
-        tools:layout_editor_absoluteY="409dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
         android:layout_width="356dp"
         android:layout_height="43dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="11dp"
         android:gravity="center_horizontal"
         android:text="Não conseguimos encontrar o filme que voce procura. Por favor, refaça sua busca."
         android:textColor="#737599"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="446dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
