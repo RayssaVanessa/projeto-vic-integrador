@@ -3,6 +3,7 @@ package com.example.projetovicintegrador
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.projetovicintegrador.databinding.ItemElencoBinding
 import com.example.projetovicintegrador.model.Elenco
 
@@ -12,8 +13,11 @@ class ElencoAdapter(private val listaElenco: List<Elenco>) :
     class MyViewHolder(private val bindingComponent: ItemElencoBinding) :
         RecyclerView.ViewHolder(bindingComponent.root) {
         fun bind(elenco: Elenco) {
+            //Atribuindo o valor do meu objeto elenco ao componente do XML
             bindingComponent.funcao.text = elenco.profission
             bindingComponent.nomeElenco.text = elenco.nameAuthor
+            Glide.with(bindingComponent.itemElenco.context).load(elenco.photo)
+                .into(bindingComponent.itemElenco)
 
         }
 
