@@ -6,7 +6,9 @@ import com.bumptech.glide.Glide
 import com.example.projetovicintegrador.databinding.SinopseBinding
 import com.example.projetovicintegrador.model.Elenco
 import com.example.projetovicintegrador.model.Filme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SynopsisActivity : AppCompatActivity() {
     // declarando xml numa classe
     private lateinit var binding: SinopseBinding

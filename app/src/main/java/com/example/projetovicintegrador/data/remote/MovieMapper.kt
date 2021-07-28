@@ -14,7 +14,9 @@ object MovieMapper {
         return MovieReference(response.posterPath,
             response.id,
             response.title,
-            response.voteAverage)
+            (response.voteAverage * 10).toString() + "%",
+            response.genreIds
+        )
     }
 
     fun itemMovieToMovieReference(response: List<ItemMovieResponse>): List<MovieReference> {

@@ -16,7 +16,7 @@ class FilmeAdapter(private val films: List<MovieReference>) :
         RecyclerView.ViewHolder(filmeComponente.root) {
         fun bind (filme: MovieReference) {
             filmeComponente.apply {
-                rating.text = filme.voteAverage.toString()
+                rating.text = filme.voteAverage
                 textView2.text= filme.title
                 Glide.with(imageView.context).load(filme.posterPath).into(imageView)
 

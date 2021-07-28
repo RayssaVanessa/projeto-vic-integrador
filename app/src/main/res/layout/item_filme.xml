@@ -64,7 +64,9 @@
             android:layout_marginStart="8dp"
             android:text="81%"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
     </LinearLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
