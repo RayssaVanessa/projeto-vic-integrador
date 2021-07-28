@@ -8,7 +8,9 @@ import com.example.projetovicintegrador.model.Resource
 import javax.inject.Inject
 
 //Separando as responsabilidades
-class MovieRepository @Inject constructor(private val remote: MovieRemote) : IMovieRepository {
+class MovieRepository @Inject constructor(
+    private val remote: MovieRemote
+) : IMovieRepository {
     override suspend fun getMovies(): Resource<Exception, List<MovieReference>> {
         //Tentar executar oq ta dentro
         // e se não der certo, executa o que tá dentro do cath
