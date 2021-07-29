@@ -30,7 +30,6 @@ class SynopsisActivity : AppCompatActivity() {
         // populando view com valores do objeto
         binding.titleFilm.text = movie.title
         val adapterElenco = ElencoAdapter(movie.listElenco)
-        val listaGenre = GenreAdapter(movie.genre)
         binding.apply {
             year.text = movie.year.toString()
             pg.text = movie.pg
@@ -38,7 +37,6 @@ class SynopsisActivity : AppCompatActivity() {
             synopsisDescricion.text = movie.biography
             rating.text = movie.rate
             listElenco.adapter = adapterElenco
-            listGenre.adapter = listaGenre
             Glide.with(this@SynopsisActivity).load(movie.poster).into(imageSynopsis)
 
 

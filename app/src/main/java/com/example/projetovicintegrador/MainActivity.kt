@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projetovicintegrador.databinding.ActivityMainBinding
+import com.example.projetovicintegrador.model.GenreReference
 import com.example.projetovicintegrador.model.MovieReference
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -18,7 +19,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel.apply {
+            //observar oq vem da api(state)
             state.observe(this@MainActivity, { handleState(it) })
+            getGenres()
+            getMovies()
         }
 
 //        val intent = Intent(this, SynopsisActivity::class.java)
@@ -40,12 +44,21 @@ class MainActivity : AppCompatActivity() {
             is MainState.LoadMovies -> {
                 updateList(state.movies)
             }
+
+            is MainState.LoadGenres -> {
+                updateListGenre(state.genres)
+            }
         }
     }
 
     private fun updateList(movies: List<MovieReference>) {
         val movieAdapter = FilmeAdapter(movies)
         binding.rvFilm.adapter = movieAdapter
+    }
+
+    private fun updateListGenre(genres: List<GenreReference>) {
+        val genreAdapter = GenreAdapter(genres)
+        binding.RvGenre.adapter = genreAdapter
     }
 
     fun createMoviesFake(): List<MovieReference> {

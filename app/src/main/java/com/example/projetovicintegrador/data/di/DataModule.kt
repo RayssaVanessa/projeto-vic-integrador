@@ -20,7 +20,7 @@ object DataModule {
     @Provides
     fun provideMovieApi(): MovieApi {
         return Retrofit.Builder()
-            .baseUrl("https://api.themoviedb.org/3/")
+            .baseUrl("https://api.themoviedb.org/")
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
             .client(OkHttpClient.Builder().build())
             .build()

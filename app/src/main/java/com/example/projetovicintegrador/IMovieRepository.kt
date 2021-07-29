@@ -1,8 +1,10 @@
 package com.example.projetovicintegrador
 
+import com.example.projetovicintegrador.model.GenreReference
 import com.example.projetovicintegrador.model.MovieReference
 import com.example.projetovicintegrador.model.Resource
 
 interface IMovieRepository {
     suspend fun getMovies(): Resource<Exception, List<MovieReference>>
+    suspend fun getGenre(): Resource<Exception, List<GenreReference>>
 }

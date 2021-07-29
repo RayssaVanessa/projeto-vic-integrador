@@ -4,14 +4,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projetovicintegrador.databinding.ItemSinopsBinding
+import com.example.projetovicintegrador.model.GenreReference
 
-class GenreAdapter(private val genreFilm: List<String>) :
+class GenreAdapter(private val genreFilm: List<GenreReference>) :
     RecyclerView.Adapter<GenreAdapter.ViewHolder>() {
 
     class ViewHolder(private val bindGenre: ItemSinopsBinding) :
         RecyclerView.ViewHolder(bindGenre.root) {
-        fun genre(itemGenreBinding: String) {
-            bindGenre.itemGenre.text = itemGenreBinding
+        fun genre(itemGenreBinding: GenreReference) {
+            bindGenre.itemGenre.text = itemGenreBinding.name
         }
     }
 

@@ -8,4 +8,5 @@ data class ItemMovieResponse(
     @SerializedName("title") val title: String,
     @SerializedName("vote_average") val voteAverage: Float,
     @SerializedName("genre_ids") val genreIds: List<Int>
+
     )
