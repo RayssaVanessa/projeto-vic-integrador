@@ -3,6 +3,7 @@ package com.example.projetovicintegrador.data.repository
 import com.example.projetovicintegrador.IMovieRepository
 import com.example.projetovicintegrador.data.remote.MovieMapper
 import com.example.projetovicintegrador.data.remote.MovieRemote
+import com.example.projetovicintegrador.model.Filme
 import com.example.projetovicintegrador.model.GenreReference
 import com.example.projetovicintegrador.model.MovieReference
 import com.example.projetovicintegrador.model.Resource
@@ -33,4 +34,13 @@ class MovieRepository @Inject constructor(private val remote: MovieRemote) : IMo
         }
     }
 
+    override suspend fun getDetail(id: Long): Resource<Exception, Filme> {
+        return try {
+            val detailResult = remote.getDetail(id)
+            val castResult = remote.getCast(id)
+            val filme = MovieMapper.createFilme(detailResult, castResult)
+            return Resource.build { filme }
+        } catch (e: Exception) {
+            Resource.setError(e)
+        }    }
 }

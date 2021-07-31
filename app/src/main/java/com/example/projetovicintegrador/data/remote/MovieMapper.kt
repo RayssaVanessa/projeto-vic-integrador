@@ -1,13 +1,15 @@
 package com.example.projetovicintegrador.data.remote
 
-import com.example.projetovicintegrador.data.remote.model.GenresReferenceResponse
-import com.example.projetovicintegrador.data.remote.model.ItemMovieResponse
-import com.example.projetovicintegrador.data.remote.model.MoviesReferenceResponse
+import com.example.projetovicintegrador.data.remote.model.*
+import com.example.projetovicintegrador.model.Elenco
+import com.example.projetovicintegrador.model.Filme
 import com.example.projetovicintegrador.model.GenreReference
 import com.example.projetovicintegrador.model.MovieReference
+import java.text.SimpleDateFormat
 
 object MovieMapper {
     private const val BASE_URL_IMAGE = "https://image.tmdb.org/t/p/w185"
+    private const val BASE_URL_IMAGE_DETAIL = "https://image.tmdb.org/t/p/w300"
 
     //Funçao de transformar o obj da API no que preciso na View
     fun movieResponseToMovieReference(response: MoviesReferenceResponse): List<MovieReference> {
@@ -23,13 +25,41 @@ object MovieMapper {
         )
     }
 
-    fun itemMovieToMovieReference(response: List<ItemMovieResponse>): List<MovieReference> {
-        // Transforando a lista
-        return response.map { itemMovieToMovieReference(it) }
-
-    }
-
     fun genreResponseToGenreReference(response: GenresReferenceResponse): List<GenreReference> {
         return response.genres.map { GenreReference(it.id, it.nameGenre) }
+    }
+
+    fun createFilme(
+        detailResponse: DetailMovieReferenceResponse,
+        castResponse: CastReferenceResponse,
+    ): Filme {
+        return Filme(
+            nameFilm = detailResponse.title,
+            rate = (detailResponse.voteAverage * 10).toString() + "%",
+            title = detailResponse.title,
+            poster = BASE_URL_IMAGE_DETAIL + detailResponse.posterPath,
+            favorite = false,
+            genre = detailResponse.genres.map { it.nameGenre },
+            year = SimpleDateFormat("yyyy").format(detailResponse.releaseDate),
+            biography = detailResponse.overview,
+            synopsis = "",
+            time = getDurationTime(detailResponse.runtime),
+            pg = "PG",
+            listElenco = castResponse.cast.map {
+                Elenco(
+                    BASE_URL_IMAGE + it.profilePath,
+                    it.originalName,
+                    it.knownForDepartament
+                )
+            }
+        )
+    }
+
+    private fun getDurationTime(time: Int): String {
+        return if (time < 60) {
+            "${time}m"
+        } else {
+            "${time / 60}h${time % 60}m"
+        }
     }
 }
