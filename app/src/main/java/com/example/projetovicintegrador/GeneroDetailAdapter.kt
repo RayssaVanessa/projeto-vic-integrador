@@ -12,7 +12,7 @@ class GeneroDetailAdapter(private val genreFilm: List<String>) :
     class ViewHolder(private val bindGenre: ItemSinopsBinding) :
         RecyclerView.ViewHolder(bindGenre.root) {
         fun genre(itemGenreBinding: String) {
-            bindGenre.itemGenre.text = itemGenreBinding
+            bindGenre.itemActivity.text = itemGenreBinding
         }
     }
 

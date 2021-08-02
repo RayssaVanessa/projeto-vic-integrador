@@ -36,4 +36,18 @@ interface MovieApi {
         @Query("api_key") api: String = "50a01967a2adac9736c537bc3ac4bcd5",
         @Query("language") language: String = "pt-BR",
     ): CastReferenceResponse
+
+    @GET("3/discover/movie")
+    suspend fun getMovieWithGenre(
+        @Query("api_key") api: String = "50a01967a2adac9736c537bc3ac4bcd5",
+        @Query("language") language: String = "pt-BR",
+        @Query("with_genres") genre: String = ""
+    ): MoviesReferenceResponse
+
+    @GET("3/search/movie")
+    suspend fun getSearchMovie(
+        @Query("api_key") api: String = "50a01967a2adac9736c537bc3ac4bcd5",
+        @Query("language") language: String = "pt-BR",
+        @Query("query") title: String = ""
+    ): MoviesReferenceResponse
 }

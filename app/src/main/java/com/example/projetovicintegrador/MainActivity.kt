@@ -9,6 +9,7 @@ import com.example.projetovicintegrador.databinding.ActivityMainBinding
 import com.example.projetovicintegrador.model.GenreReference
 import com.example.projetovicintegrador.model.MovieReference
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.sinopse.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -26,18 +27,6 @@ class MainActivity : AppCompatActivity() {
             getGenres()
             getMovies()
         }
-
-//        val intent = Intent(this, SynopsisActivity::class.java)
-//        startActivity(intent)
-
-        //Criando uma lista com  3 filmes iguais
-        val adapterGenre = AdapterGenActivity(listGenActivity = listOf("Ação",
-            "Romance",
-            "Drama",
-            "Comédia",
-            "Terror"))
-
-        binding.RvGenre.adapter = adapterGenre
 
     }
 
@@ -68,8 +57,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateListGenre(genres: List<GenreReference>) {
-        val genreAdapter = GenreAdapter(genres)
+        val genreAdapter = GenreAdapter(genres, {
+            openDetailGenre(it)
+        })
         binding.RvGenre.adapter = genreAdapter
+    }
+
+    private fun openDetailGenre(genres: GenreReference) {
+
     }
 
 }
