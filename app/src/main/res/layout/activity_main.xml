@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="40dp"
             android:text="Favoritos"
-            android:textColor="#223334"
+            android:textColor="#AFAFAF"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="@+id/text_todosFilmes"
             app:layout_constraintEnd_toEndOf="parent"
@@ -76,12 +76,13 @@
             app:layout_constraintStart_toStartOf="@+id/text_todosFilmes"
             app:layout_constraintTop_toBottomOf="@+id/text_todosFilmes" />
 
-
         <View
+            android:id="@+id/view_boton_favorite"
             android:layout_width="40dp"
             android:layout_height="6dp"
             android:layout_marginTop="17dp"
             android:background="#11C76F"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="@+id/text_favoritos"
             app:layout_constraintTop_toBottomOf="@+id/text_favoritos" />
 

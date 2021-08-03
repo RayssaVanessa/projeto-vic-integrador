@@ -17,4 +17,5 @@
     <color name="keyboard">#12153D</color>
     <color name="sinopse">#12153D</color>
    <color name="genre_selected">#223324</color>
+    <color name="gray">#AFAFAF</color>
 </resources>

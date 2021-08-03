@@ -2,8 +2,11 @@ package com.example.projetovicintegrador
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import com.example.projetovicintegrador.SynopsisActivity.Companion.ID_ARG
 import com.example.projetovicintegrador.databinding.ActivityMainBinding
 import com.example.projetovicintegrador.model.GenreReference
@@ -31,7 +34,31 @@ class MainActivity : AppCompatActivity() {
         configViews()
 
         binding.textTodosFilmes.setOnClickListener {
-
+        changeStyleForAllMovies()
+        }
+        binding.textFavoritos.setOnClickListener {
+            changeStyleForFavoriteMovies()
+        }
+    }
+    //alterar a visibilidade e o estilo do layout
+    private fun changeStyleForAllMovies(){
+        binding.apply {
+            view.visibility = View.VISIBLE
+            textTodosFilmes.setTextColor(ContextCompat.getColor(this@MainActivity,
+                R.color.black))
+            viewBotonFavorite.visibility = View.INVISIBLE
+            textFavoritos.setTextColor(ContextCompat.getColor(this@MainActivity,
+                R.color.gray))
+        }
+    }
+    private fun changeStyleForFavoriteMovies(){
+        binding.apply {
+            view.visibility = View.INVISIBLE
+            textTodosFilmes.setTextColor(ContextCompat.getColor(this@MainActivity,
+                R.color.gray))
+            viewBotonFavorite.visibility = View.VISIBLE
+            textFavoritos.setTextColor(ContextCompat.getColor(this@MainActivity,
+                R.color.black))
         }
     }
 
