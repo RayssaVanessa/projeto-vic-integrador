@@ -93,7 +93,8 @@
         <TextView
             android:id="@+id/title_film"
             android:layout_width="wrap_content"
-            android:layout_height="29dp"
+            android:layout_height="wrap_content"
+            android:maxWidth="150dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:gravity="center"
@@ -107,6 +108,7 @@
         <TextView
             android:id="@+id/year"
             android:layout_width="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
             android:text="2019"
@@ -145,6 +147,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_genre"
             android:layout_width="match_parent"
+            android:layout_marginStart="16dp"
             android:layout_height="56dp"
             android:layout_marginTop="20dp"
             android:orientation="horizontal"

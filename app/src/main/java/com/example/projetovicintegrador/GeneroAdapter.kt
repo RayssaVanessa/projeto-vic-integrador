@@ -2,6 +2,7 @@ package com.example.projetovicintegrador
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projetovicintegrador.databinding.ItemGenreBinding
@@ -49,7 +50,6 @@ class GenreAdapter(
         if (selectedGenresId.contains(id)) {
             selectedGenresId.remove(id)
         } else {
-            //selectedGenresId.clear()
             selectedGenresId.add(id)
         }
         notifyDataSetChanged()
@@ -67,5 +67,4 @@ class GenreAdapter(
     }
 
     override fun getItemCount() = genreFilm.size
-
 }

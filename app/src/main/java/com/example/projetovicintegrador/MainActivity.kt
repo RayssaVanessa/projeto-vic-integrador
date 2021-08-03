@@ -9,6 +9,7 @@ import com.example.projetovicintegrador.databinding.ActivityMainBinding
 import com.example.projetovicintegrador.model.GenreReference
 import com.example.projetovicintegrador.model.MovieReference
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.sinopse.*
 
 @AndroidEntryPoint
@@ -28,6 +29,10 @@ class MainActivity : AppCompatActivity() {
             getMovies()
         }
         configViews()
+
+        binding.textTodosFilmes.setOnClickListener {
+
+        }
     }
 
     private fun handleState(state: Any) {
@@ -76,4 +81,8 @@ class MainActivity : AppCompatActivity() {
     private fun initSearch() {
         viewModel.getSearchMovies(binding.campoPesquisa.text.toString())
     }
+
+
+
+
 }
