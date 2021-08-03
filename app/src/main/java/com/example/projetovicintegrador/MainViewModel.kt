@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.projetovicintegrador.domain.GetGenreUseCase
 import com.example.projetovicintegrador.domain.GetMoviesUseCase
+import com.example.projetovicintegrador.domain.GetSearchMoviesUseCase
 import com.example.projetovicintegrador.model.Resource
 import kotlinx.coroutines.launch
 
@@ -13,6 +14,7 @@ import kotlinx.coroutines.launch
 class MainViewModel @ViewModelInject constructor(
     private val getMoviesUseCase: GetMoviesUseCase,
     private val getGenreUseCase: GetGenreUseCase,
+    private val getSearchMoviesUseCase: GetSearchMoviesUseCase
 ) : ViewModel() {
 
     private val _state = MutableLiveData<Any>()
@@ -22,6 +24,20 @@ class MainViewModel @ViewModelInject constructor(
         //execucao síncrona
         viewModelScope.launch {
             when (val result = getMoviesUseCase.execute()) {
+                is Resource.Value -> {
+                    _state.value = MainState.LoadMovies(result.value)
+                }
+                is Resource.Error -> {
+                    _state.value = result.error!!
+                    //enviando p activity a lista se for sucesso e o erro se der erro
+                }
+            }
+        }
+    }
+
+    fun getSearchMovies(title: String) {
+        viewModelScope.launch {
+            when (val result = getSearchMoviesUseCase.execute(title)) {
                 is Resource.Value -> {
                     _state.value = MainState.LoadMovies(result.value)
                 }

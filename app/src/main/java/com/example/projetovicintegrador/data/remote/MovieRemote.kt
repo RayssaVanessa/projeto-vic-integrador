@@ -1,10 +1,7 @@
 package com.example.projetovicintegrador.data.remote
 
 import com.example.projetovicintegrador.data.remote.api.MovieApi
-import com.example.projetovicintegrador.data.remote.model.CastReferenceResponse
-import com.example.projetovicintegrador.data.remote.model.DetailMovieReferenceResponse
-import com.example.projetovicintegrador.data.remote.model.GenresReferenceResponse
-import com.example.projetovicintegrador.data.remote.model.MoviesReferenceResponse
+import com.example.projetovicintegrador.data.remote.model.*
 
 class MovieRemote(
     private val api: MovieApi
@@ -23,5 +20,9 @@ class MovieRemote(
 
     suspend fun getCast(id: Long): CastReferenceResponse {
         return api.getCast(id)
+    }
+
+    suspend fun getSearchMovie(title: String): SearchMoviesReferenceResponse {
+        return api.getSearchMovie(title)
     }
 }

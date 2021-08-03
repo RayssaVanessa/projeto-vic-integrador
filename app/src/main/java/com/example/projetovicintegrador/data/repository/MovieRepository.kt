@@ -24,6 +24,17 @@ class MovieRepository @Inject constructor(private val remote: MovieRemote) : IMo
         }
     }
 
+    override suspend fun getSearchMovies(title: String): Resource<Exception, List<MovieReference>> {
+        return try {
+            //chamando a lista de filmes
+            val result = remote.getSearchMovie(title)
+            val list = MovieMapper.searchMovieResponseToMovieReference(result)
+            return Resource.build { list }
+        } catch (e: Exception) {
+            Resource.setError(e)
+        }
+    }
+
     override suspend fun getGenre(): Resource<Exception, List<GenreReference>> {
         return try {
             val result = remote.getGenres()

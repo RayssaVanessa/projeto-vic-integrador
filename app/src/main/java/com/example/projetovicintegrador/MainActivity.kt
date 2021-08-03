@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             getGenres()
             getMovies()
         }
-
+        configViews()
     }
 
     private fun handleState(state: Any) {
@@ -43,9 +43,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateList(movies: List<MovieReference>) {
-        val movieAdapter = FilmeAdapter(movies, {
+        val movieAdapter = FilmeAdapter(movies) {
             openDetailMovie(it)
-        })
+        }
         binding.rvFilm.adapter = movieAdapter
     }
 
@@ -57,14 +57,28 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateListGenre(genres: List<GenreReference>) {
-        val genreAdapter = GenreAdapter(genres, {
-            openDetailGenre(it)
-        })
+        val genreAdapter = GenreAdapter(genres) {
+            filterGenres(it)
+        }
         binding.RvGenre.adapter = genreAdapter
     }
 
-    private fun openDetailGenre(genres: GenreReference) {
+    private fun configViews() {
+        binding.apply {
+            btnPesquisa.setOnClickListener{ initSearch() }
+        }
+    }
 
+    private fun filterGenres(genres: List<Int>) {
+        clearSearch()
+    }
+
+    private fun initSearch() {
+        viewModel.getSearchMovies(binding.campoPesquisa.text.toString())
+    }
+
+    private fun clearSearch() {
+        binding.campoPesquisa.setText(String())
     }
 
 }

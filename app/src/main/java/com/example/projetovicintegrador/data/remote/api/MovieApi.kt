@@ -1,9 +1,6 @@
 package com.example.projetovicintegrador.data.remote.api
 
-import com.example.projetovicintegrador.data.remote.model.CastReferenceResponse
-import com.example.projetovicintegrador.data.remote.model.DetailMovieReferenceResponse
-import com.example.projetovicintegrador.data.remote.model.GenresReferenceResponse
-import com.example.projetovicintegrador.data.remote.model.MoviesReferenceResponse
+import com.example.projetovicintegrador.data.remote.model.*
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -46,8 +43,8 @@ interface MovieApi {
 
     @GET("3/search/movie")
     suspend fun getSearchMovie(
+        @Query("query") title: String,
         @Query("api_key") api: String = "50a01967a2adac9736c537bc3ac4bcd5",
         @Query("language") language: String = "pt-BR",
-        @Query("query") title: String = ""
-    ): MoviesReferenceResponse
+    ): SearchMoviesReferenceResponse
 }

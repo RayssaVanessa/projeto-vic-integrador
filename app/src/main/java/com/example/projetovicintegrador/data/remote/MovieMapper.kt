@@ -16,6 +16,16 @@ object MovieMapper {
         return response.results.map { itemMovieToMovieReference(it) }
     }
 
+    fun searchMovieResponseToMovieReference(response: SearchMoviesReferenceResponse): List<MovieReference> {
+        return response.results.map { searchMovie ->
+            MovieReference(BASE_URL_IMAGE + searchMovie.posterPath,
+                searchMovie.id,
+                searchMovie.title,
+                (searchMovie.voteAverage * 10).toString() + "%",
+                arrayListOf()
+        ) }
+    }
+
     fun itemMovieToMovieReference(response: ItemMovieResponse): MovieReference {
         return MovieReference(BASE_URL_IMAGE + response.posterPath,
             response.id,

@@ -2,28 +2,56 @@ package com.example.projetovicintegrador
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projetovicintegrador.databinding.ItemGenreBinding
-import com.example.projetovicintegrador.databinding.ItemSinopsBinding
 import com.example.projetovicintegrador.model.GenreReference
-import com.example.projetovicintegrador.model.MovieReference
 
 class GenreAdapter(
     private val genreFilm: List<GenreReference>,
-    val onClickGenre: (GenreReference) -> Unit,
+    private val onClickGenre: (ArrayList<Int>) -> Unit,
 ) : RecyclerView.Adapter<GenreAdapter.ViewHolder>() {
 
-    inner class ViewHolder(private val bindGenre:ItemGenreBinding) :
+    private val selectedGenresId = arrayListOf<Int>()
+
+    inner class ViewHolder(private val bindGenre: ItemGenreBinding) :
         RecyclerView.ViewHolder(bindGenre.root) {
-        fun genre(itemGenreBinding: GenreReference) {
+        fun genre(itemGenreBinding: GenreReference, position: Int) {
             bindGenre.apply {
                 itemGenre.text = itemGenreBinding.name
                 root.setOnClickListener {
-                    onClickGenre.invoke(itemGenreBinding)
+                    updateListGenres(itemGenreBinding.id, position)
+                    onClickGenre.invoke(selectedGenresId)
                 }
+                updateView(this,itemGenreBinding.id)
             }
-
         }
+    }
+
+    private fun updateView(bindGenre: ItemGenreBinding, id: Int) {
+        bindGenre.apply {
+            val context = this.itemGenre.context
+            if (selectedGenresId.contains(id)) {
+                this.itemGenre.backgroundTintList =
+                    ContextCompat.getColorStateList(context, R.color.genre_selected)
+                this.itemGenre.setTextColor(ContextCompat.getColor(context,
+                    R.color.white))
+            } else {
+                this.itemGenre.backgroundTintList =
+                    ContextCompat.getColorStateList(context, R.color.buttonGenreColor)
+                this.itemGenre.setTextColor(ContextCompat.getColor(context,
+                    R.color.black))
+            }
+        }
+    }
+
+    private fun updateListGenres(id: Int, position: Int) {
+        if (selectedGenresId.contains(id)) {
+            selectedGenresId.remove(id)
+        } else {
+            selectedGenresId.add(id)
+        }
+        notifyItemChanged(position)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -33,7 +61,7 @@ class GenreAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.genre(genreFilm[position])
+        holder.genre(genreFilm[position], position)
 
     }
 

@@ -9,5 +9,6 @@ interface IMovieRepository {
     suspend fun getMovies(): Resource<Exception, List<MovieReference>>
     suspend fun getGenre(): Resource<Exception, List<GenreReference>>
     suspend fun getDetail(id: Long): Resource<Exception, Filme>
+    suspend fun getSearchMovies(title: String): Resource<Exception, List<MovieReference>>
 
 }
