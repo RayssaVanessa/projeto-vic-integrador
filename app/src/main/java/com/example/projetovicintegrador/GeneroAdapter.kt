@@ -49,9 +49,10 @@ class GenreAdapter(
         if (selectedGenresId.contains(id)) {
             selectedGenresId.remove(id)
         } else {
+            //selectedGenresId.clear()
             selectedGenresId.add(id)
         }
-        notifyItemChanged(position)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

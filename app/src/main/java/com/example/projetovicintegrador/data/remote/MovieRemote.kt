@@ -25,4 +25,8 @@ class MovieRemote(
     suspend fun getSearchMovie(title: String): SearchMoviesReferenceResponse {
         return api.getSearchMovie(title)
     }
+
+    suspend fun getMoviesByGenres(ids: List<Int>): SearchMoviesReferenceResponse {
+        return api.getMovieWithGenre(ids)
+    }
 }

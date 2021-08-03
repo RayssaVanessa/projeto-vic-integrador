@@ -70,15 +70,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun filterGenres(genres: List<Int>) {
-        clearSearch()
+        viewModel.getMoviesByGenres(genres)
     }
 
     private fun initSearch() {
         viewModel.getSearchMovies(binding.campoPesquisa.text.toString())
     }
-
-    private fun clearSearch() {
-        binding.campoPesquisa.setText(String())
-    }
-
 }
