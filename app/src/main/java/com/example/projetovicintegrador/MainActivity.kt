@@ -32,14 +32,8 @@ class MainActivity : AppCompatActivity() {
             getMovies()
         }
         configViews()
-
-        binding.textTodosFilmes.setOnClickListener {
-        changeStyleForAllMovies()
-        }
-        binding.textFavoritos.setOnClickListener {
-            changeStyleForFavoriteMovies()
-        }
     }
+
     //alterar a visibilidade e o estilo do layout
     private fun changeStyleForAllMovies(){
         binding.apply {
@@ -90,7 +84,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateListGenre(genres: List<GenreReference>) {
         val genreAdapter = GenreAdapter(genres) {
-            filterGenres(it)
+            filterByGenres(it)
         }
         binding.RvGenre.adapter = genreAdapter
     }
@@ -98,18 +92,50 @@ class MainActivity : AppCompatActivity() {
     private fun configViews() {
         binding.apply {
             btnPesquisa.setOnClickListener{ initSearch() }
+            textTodosFilmes.setOnClickListener {
+                changeStyleForAllMovies()
+            }
+            textFavoritos.setOnClickListener {
+                changeStyleForFavoriteMovies()
+            }
+            campoPesquisa.setOnFocusChangeListener { _, hasFocus ->
+                if (hasFocus) {
+                    changeStyleForSearchMovie()
+                }
+            }
+            campoPesquisa.setOnClickListener {
+                changeStyleForSearchMovie()
+            }
+            voltarInicio.setOnClickListener{
+                changeStyleForNoSearchMovie()
+
+
+            }
         }
     }
 
-    private fun filterGenres(genres: List<Int>) {
-        viewModel.getMoviesByGenres(genres)
+    private fun changeStyleForSearchMovie() {
+        binding.apply {
+            containerOptions.isVisible = false
+            containerSearch.isVisible = true
+        }
+    }
+
+    private fun changeStyleForNoSearchMovie() {
+        binding.apply {
+            containerOptions.isVisible = true
+            containerSearch.isVisible = false
+            campoPesquisa.text.clear()
+
+        }
     }
 
     private fun initSearch() {
         viewModel.getSearchMovies(binding.campoPesquisa.text.toString())
     }
 
-
-
+    private fun filterByGenres(genres: List<Int>) {
+        viewModel.filterByGenres(genres, binding.containerSearch.isVisible)
+    }
 
 }

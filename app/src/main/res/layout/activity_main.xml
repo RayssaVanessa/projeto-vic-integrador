@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/backgroundColor"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -39,52 +39,106 @@
             app:layout_constraintStart_toEndOf="@+id/btn_pesquisa"
             app:layout_constraintTop_toTopOf="@+id/btn_pesquisa" />
 
-
-        <TextView
-            android:id="@+id/text_todosFilmes"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/container_build"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Todos os filmes"
-            android:textColor="#223334"
-            android:textSize="24sp"
+            android:orientation="vertical"
             app:layout_constraintStart_toStartOf="@+id/btn_pesquisa"
             app:layout_constraintTop_toBottomOf="@+id/campo_pesquisa">
 
-        </TextView>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container_options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@+id/btn_pesquisa"
+                app:layout_constraintTop_toBottomOf="@+id/campo_pesquisa">
 
-        <TextView
-            android:id="@+id/text_favoritos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="40dp"
-            android:text="Favoritos"
-            android:textColor="#AFAFAF"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="@+id/text_todosFilmes"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/text_todosFilmes"
-            app:layout_constraintVertical_bias="0.529" />
+                <TextView
+                    android:id="@+id/text_todosFilmes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Todos os filmes"
+                    android:textColor="#223334"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/text_favoritos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="40dp"
+                    android:text="Favoritos"
+                    android:textColor="#AFAFAF"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/text_todosFilmes"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/text_todosFilmes"
+                    app:layout_constraintVertical_bias="0.529" />
 
 
-        <View
-            android:id="@+id/view"
-            android:layout_width="40dp"
-            android:layout_height="6dp"
-            android:layout_marginTop="17dp"
-            android:background="#11C76F"
-            app:layout_constraintStart_toStartOf="@+id/text_todosFilmes"
-            app:layout_constraintTop_toBottomOf="@+id/text_todosFilmes" />
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="40dp"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="17dp"
+                    android:background="#11C76F"
+                    app:layout_constraintStart_toStartOf="@+id/text_todosFilmes"
+                    app:layout_constraintTop_toBottomOf="@+id/text_todosFilmes" />
 
-        <View
-            android:id="@+id/view_boton_favorite"
-            android:layout_width="40dp"
-            android:layout_height="6dp"
-            android:layout_marginTop="17dp"
-            android:background="#11C76F"
-            android:visibility="invisible"
-            app:layout_constraintStart_toStartOf="@+id/text_favoritos"
-            app:layout_constraintTop_toBottomOf="@+id/text_favoritos" />
+                <View
+                    android:id="@+id/view_boton_favorite"
+                    android:layout_width="40dp"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="17dp"
+                    android:background="#11C76F"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toStartOf="@+id/text_favoritos"
+                    app:layout_constraintTop_toBottomOf="@+id/text_favoritos" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/container_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                tools:visibility="visible"
+                android:visibility="gone">
+
+                <View
+                    android:layout_width="40dp"
+                    android:layout_height="6dp"
+                    android:background="@color/ic_baseline_horizontal_rule_24.xml"
+                    android:src="@drawable/ic_baseline_horizontal_rule_24" />
+
+                <TextView
+                    android:layout_width="217dp"
+                    android:layout_height="38dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="32dp"
+                    android:text="Modo pesquisa"
+                    android:textColor="#223334"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteY="107dp" />
+
+                <TextView
+                    android:id="@+id/voltar_inicio"
+                    android:layout_width="153dp"
+                    android:layout_height="21dp"
+                    android:text="Voltar ao início"
+                    android:textColor="#11C76F"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/Rv_genre"
@@ -98,7 +152,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.321"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/container_build"
             app:layout_constraintVertical_bias="0.117"
             tools:listitem="@layout/item_genre" />
 
@@ -113,7 +167,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Rv_genre"
             tools:listitem="@layout/item_filme" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

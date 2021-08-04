@@ -1,5 +1,6 @@
 package com.example.projetovicintegrador
 
+import androidx.core.view.isVisible
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,6 +9,7 @@ import com.example.projetovicintegrador.domain.GetGenreUseCase
 import com.example.projetovicintegrador.domain.GetMoviesByGenresUseCase
 import com.example.projetovicintegrador.domain.GetMoviesUseCase
 import com.example.projetovicintegrador.domain.GetSearchMoviesUseCase
+import com.example.projetovicintegrador.model.MovieReference
 import com.example.projetovicintegrador.model.Resource
 import kotlinx.coroutines.launch
 
@@ -22,12 +24,15 @@ class MainViewModel @ViewModelInject constructor(
     private val _state = MutableLiveData<Any>()
     val state get() = _state
 
+    private var movies = listOf<MovieReference>()
+
     fun getMovies() {
         //execucao síncrona
         viewModelScope.launch {
             when (val result = getMoviesUseCase.execute()) {
                 is Resource.Value -> {
-                    _state.value = MainState.LoadMovies(result.value)
+                    movies = result.value //resposta da api
+                    _state.value = MainState.LoadMovies(movies)
                 }
                 is Resource.Error -> {
                     _state.value = result.error!!
@@ -41,7 +46,8 @@ class MainViewModel @ViewModelInject constructor(
         viewModelScope.launch {
             when (val result = getSearchMoviesUseCase.execute(title)) {
                 is Resource.Value -> {
-                    _state.value = MainState.LoadMovies(result.value)
+                    movies = result.value
+                    _state.value = MainState.LoadMovies(movies)
                 }
                 is Resource.Error -> {
                     _state.value = result.error!!
@@ -51,11 +57,12 @@ class MainViewModel @ViewModelInject constructor(
         }
     }
 
-    fun getMoviesByGenres(ids: List<Int>) {
+    private fun getMoviesByGenres(ids: List<Int>) {
         viewModelScope.launch {
             when (val result = getMoviesByGenresUseCase.execute(ids)) {
                 is Resource.Value -> {
-                    _state.value = MainState.LoadMovies(result.value)
+                    movies = result.value
+                    _state.value = MainState.LoadMovies(movies)
                 }
                 is Resource.Error -> {
                     _state.value = result.error!!
@@ -66,7 +73,7 @@ class MainViewModel @ViewModelInject constructor(
     }
 
     fun getGenres() {
-        //execucao sincroca
+        //execucao sincrona
         viewModelScope.launch {
             when (val result = getGenreUseCase.execute()) {
                 is Resource.Value -> {
@@ -76,6 +83,14 @@ class MainViewModel @ViewModelInject constructor(
                     _state.value = result.error!!
                 }
             }
+        }
+    }
+
+    fun filterByGenres(genres: List<Int>, isLocalSearch: Boolean) {
+        if (isLocalSearch) {
+            _state.value = MainState.LoadMovies(movies.filter { it.genreIds.containsAll(genres) })
+        } else {
+            getMoviesByGenres(genres)
         }
     }
 }
