@@ -47,4 +47,10 @@ interface MovieApi {
         @Query("api_key") api: String = "50a01967a2adac9736c537bc3ac4bcd5",
         @Query("language") language: String = "pt-BR",
     ): SearchMoviesReferenceResponse
+
+    @GET("3/movie/{movie_id}/release_dates")
+    suspend fun getPgMovies(
+        @Query("movie_id") movieId: String,
+        @Query("api_key") api: String = "50a01967a2adac9736c537bc3ac4bcd5"
+    )
 }

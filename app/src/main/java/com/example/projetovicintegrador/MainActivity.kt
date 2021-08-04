@@ -3,6 +3,7 @@ package com.example.projetovicintegrador
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -14,6 +15,7 @@ import com.example.projetovicintegrador.model.MovieReference
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.sinopse.*
+
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -102,6 +104,7 @@ class MainActivity : AppCompatActivity() {
                 if (hasFocus) {
                     changeStyleForSearchMovie()
                 }
+
             }
             campoPesquisa.setOnClickListener {
                 changeStyleForSearchMovie()
@@ -112,6 +115,11 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
+
+    }
+    private fun limparTeclado(){
+        val imm: InputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        if (imm.isActive()) imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
     }
 
     private fun changeStyleForSearchMovie() {
@@ -126,7 +134,7 @@ class MainActivity : AppCompatActivity() {
             containerOptions.isVisible = true
             containerSearch.isVisible = false
             campoPesquisa.text.clear()
-
+            limparTeclado()
         }
     }
 
