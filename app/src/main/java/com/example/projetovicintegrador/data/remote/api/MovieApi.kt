@@ -50,7 +50,7 @@ interface MovieApi {
 
     @GET("3/movie/{movie_id}/release_dates")
     suspend fun getPgMovies(
-        @Query("movie_id") movieId: String,
+        @Path("movie_id") movieId: Long,
         @Query("api_key") api: String = "50a01967a2adac9736c537bc3ac4bcd5"
-    )
+    ) :PgResponse
 }

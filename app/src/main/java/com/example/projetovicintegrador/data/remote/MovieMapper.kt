@@ -23,14 +23,15 @@ object MovieMapper {
                 searchMovie.title,
                 (searchMovie.voteAverage * 10).toString() + "%",
                 searchMovie.genres
-        ) }
+            )
+        }
     }
 
     fun itemMovieToMovieReference(response: ItemMovieResponse): MovieReference {
         return MovieReference(BASE_URL_IMAGE + response.posterPath,
             response.id,
             response.title,
-            (response.voteAverage * 10).toString() + "%",
+            (response.voteAverage * 10).toInt().toString() + "%",
             response.genreIds
         )
     }
@@ -42,10 +43,13 @@ object MovieMapper {
     fun createFilme(
         detailResponse: DetailMovieReferenceResponse,
         castResponse: CastReferenceResponse,
+        pgResult: PgResponse,
     ): Filme {
+        val certification =
+            pgResult.results.firstOrNull { it.iso == "BR" }?.releaseDates?.firstOrNull()?.certification ?: "?"
         return Filme(
             nameFilm = detailResponse.title,
-            rate = (detailResponse.voteAverage * 10).toString() + "%",
+            rate = (detailResponse.voteAverage * 10).toInt().toString() + "%",
             title = detailResponse.title,
             poster = BASE_URL_IMAGE_DETAIL + detailResponse.posterPath,
             favorite = false,
@@ -54,7 +58,7 @@ object MovieMapper {
             biography = detailResponse.overview,
             synopsis = "",
             time = getDurationTime(detailResponse.runtime),
-            pg = "PG",
+            pg = "PG-$certification",
             listElenco = castResponse.cast.map {
                 Elenco(
                     BASE_URL_IMAGE + it.profilePath,

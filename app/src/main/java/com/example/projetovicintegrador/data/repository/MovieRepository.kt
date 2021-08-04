@@ -59,9 +59,12 @@ class MovieRepository @Inject constructor(private val remote: MovieRemote) : IMo
         return try {
             val detailResult = remote.getDetail(id)
             val castResult = remote.getCast(id)
-            val filme = MovieMapper.createFilme(detailResult, castResult)
+            val pgResult = remote.getPgMovies(id)
+            val filme = MovieMapper.createFilme(detailResult, castResult, pgResult)
             return Resource.build { filme }
         } catch (e: Exception) {
             Resource.setError(e)
-        }    }
+        }
+    }
+
 }
