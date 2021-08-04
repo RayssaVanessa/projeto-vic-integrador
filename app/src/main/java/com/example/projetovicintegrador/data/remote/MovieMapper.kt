@@ -22,7 +22,7 @@ object MovieMapper {
                 searchMovie.id,
                 searchMovie.title,
                 (searchMovie.voteAverage * 10).toString() + "%",
-                arrayListOf()
+                searchMovie.genres
         ) }
     }
 

@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    app:cardCornerRadius="100dp"
+    app:cardBackgroundColor="@color/white"
+    app:strokeWidth="1.5dp"
+    app:strokeColor="@color/sinopse"
+    android:layout_margin="6dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
@@ -9,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:background="@drawable/item_synopsis"
+        android:paddingHorizontal="16dp"
         android:gravity="center"
         android:textColor="#434670"
         android:text="@string/movie_genre"
@@ -17,4 +22,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

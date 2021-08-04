@@ -33,12 +33,12 @@ class GenreAdapter(
         bindGenre.apply {
             val context = this.itemGenre.context
             if (selectedGenresId.contains(id)) {
-                this.itemGenre.backgroundTintList =
+                this.cvItemGenre.backgroundTintList =
                     ContextCompat.getColorStateList(context, R.color.genre_selected)
                 this.itemGenre.setTextColor(ContextCompat.getColor(context,
                     R.color.white))
             } else {
-                this.itemGenre.backgroundTintList =
+                this.cvItemGenre.backgroundTintList =
                     ContextCompat.getColorStateList(context, R.color.buttonGenreColor)
                 this.itemGenre.setTextColor(ContextCompat.getColor(context,
                     R.color.black))
