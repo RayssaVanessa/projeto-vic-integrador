@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     //alterar a visibilidade e o estilo do layout
-    private fun changeStyleForAllMovies(){
+    private fun changeStyleForAllMovies() {
         binding.apply {
             view.visibility = View.VISIBLE
             textTodosFilmes.setTextColor(ContextCompat.getColor(this@MainActivity,
@@ -47,7 +47,8 @@ class MainActivity : AppCompatActivity() {
                 R.color.gray))
         }
     }
-    private fun changeStyleForFavoriteMovies(){
+
+    private fun changeStyleForFavoriteMovies() {
         binding.apply {
             view.visibility = View.INVISIBLE
             textTodosFilmes.setTextColor(ContextCompat.getColor(this@MainActivity,
@@ -70,20 +71,20 @@ class MainActivity : AppCompatActivity() {
             }
 
             is Exception -> {
-                    binding.containerMovies.isVisible = false
-                    binding.includeLayoutError.root.isVisible = true
+                binding.containerMovies.isVisible = false
+                binding.includeLayoutError.root.isVisible = true
             }
         }
     }
 
     private fun changeStyleQuantityMovies(quantityMovies: Int) {
-            if(quantityMovies > 0) {
-                binding.rvFilm.visibility = View.VISIBLE
-                binding.containerNoMovies.isVisible = false
-            } else {
-                binding.rvFilm.visibility = View.INVISIBLE
-                binding.containerNoMovies.isVisible = true
-            }
+        if (quantityMovies > 0) {
+            binding.rvFilm.visibility = View.VISIBLE
+            binding.containerNoMovies.isVisible = false
+        } else {
+            binding.rvFilm.visibility = View.INVISIBLE
+            binding.containerNoMovies.isVisible = true
+        }
     }
 
     private fun updateList(movies: List<MovieReference>) {
@@ -109,7 +110,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun configViews() {
         binding.apply {
-            btnPesquisa.setOnClickListener{ initSearch() }
+            btnPesquisa.setOnClickListener {
+                initSearch()
+                limparTeclado()
+            }
             textTodosFilmes.setOnClickListener {
                 changeStyleForAllMovies()
             }
@@ -126,14 +130,14 @@ class MainActivity : AppCompatActivity() {
                 changeStyleForSearchMovie()
             }
 
-            voltarInicio.setOnClickListener{
+            voltarInicio.setOnClickListener {
                 changeStyleForNoSearchMovie()
                 if (containerNoMovies.isVisible) {
                     viewModel.getMovies()
                 }
             }
 
-            includeLayoutError.tentarNovamente.setOnClickListener{
+            includeLayoutError.tentarNovamente.setOnClickListener {
                 includeLayoutError.root.isVisible = false
                 containerMovies.isVisible = true
                 viewModel.getMovies()
@@ -145,7 +149,8 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-    private fun limparTeclado(){
+
+    private fun limparTeclado() {
         val imm: InputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         if (imm.isActive()) imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
     }

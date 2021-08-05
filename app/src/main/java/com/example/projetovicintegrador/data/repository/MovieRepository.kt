@@ -67,4 +67,8 @@ class MovieRepository @Inject constructor(private val remote: MovieRemote) : IMo
         }
     }
 
+    override suspend fun changeFavoriteMovie(id: Long): Resource<Exception, Unit> {
+        return Resource.build {  }
+    }
+
 }
