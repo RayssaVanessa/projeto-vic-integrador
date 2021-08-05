@@ -67,6 +67,11 @@ class MainActivity : AppCompatActivity() {
             is MainState.LoadGenres -> {
                 updateListGenre(state.genres)
             }
+
+            is Exception -> {
+                    binding.containerMovies.isVisible = false
+                    binding.includeLayoutError.root.isVisible = true
+            }
         }
     }
 
@@ -104,15 +109,24 @@ class MainActivity : AppCompatActivity() {
                 if (hasFocus) {
                     changeStyleForSearchMovie()
                 }
-
             }
+
             campoPesquisa.setOnClickListener {
                 changeStyleForSearchMovie()
             }
+
             voltarInicio.setOnClickListener{
                 changeStyleForNoSearchMovie()
+            }
 
+            includeLayoutError.tentarNovamente.setOnClickListener{
+                includeLayoutError.root.isVisible = false
+                containerMovies.isVisible = true
+                viewModel.getMovies()
+            }
 
+            includeLayoutError.icClose.setOnClickListener {
+                finish()
             }
         }
 
