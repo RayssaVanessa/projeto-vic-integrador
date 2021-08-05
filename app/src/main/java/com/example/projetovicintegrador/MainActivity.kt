@@ -61,6 +61,7 @@ class MainActivity : AppCompatActivity() {
     private fun handleState(state: Any) {
         when (state) {
             is MainState.LoadMovies -> {
+                changeStyleQuantityMovies(state.movies.size)
                 updateList(state.movies)
             }
 
@@ -73,6 +74,16 @@ class MainActivity : AppCompatActivity() {
                     binding.includeLayoutError.root.isVisible = true
             }
         }
+    }
+
+    private fun changeStyleQuantityMovies(quantityMovies: Int) {
+            if(quantityMovies > 0) {
+                binding.rvFilm.visibility = View.VISIBLE
+                binding.containerNoMovies.isVisible = false
+            } else {
+                binding.rvFilm.visibility = View.INVISIBLE
+                binding.containerNoMovies.isVisible = true
+            }
     }
 
     private fun updateList(movies: List<MovieReference>) {
@@ -117,6 +128,9 @@ class MainActivity : AppCompatActivity() {
 
             voltarInicio.setOnClickListener{
                 changeStyleForNoSearchMovie()
+                if (containerNoMovies.isVisible) {
+                    viewModel.getMovies()
+                }
             }
 
             includeLayoutError.tentarNovamente.setOnClickListener{
