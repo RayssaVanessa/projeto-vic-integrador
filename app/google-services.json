@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "337146812172",
+    "project_id": "projetovic",
+    "storage_bucket": "projetovic.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:337146812172:android:cf388b1626a4764c6a9b29",
+        "android_client_info": {
+          "package_name": "com.example.projetovicintegrador"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "337146812172-ogfsnvk62pvvr7vc9e90l1u4lkpt34qa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVz5Bvk5IFXLz3GWVvyhQGkvZkh_tXk8M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "337146812172-ogfsnvk62pvvr7vc9e90l1u4lkpt34qa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

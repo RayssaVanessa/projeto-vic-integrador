@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity() {
             is MainState.LoadMovies -> {
                 changeStyleQuantityMovies(state.movies.size)
                 updateList(state.movies)
+
             }
 
             is MainState.LoadGenres -> {
