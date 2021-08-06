@@ -5,10 +5,7 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.projetovicintegrador.domain.GetGenreUseCase
-import com.example.projetovicintegrador.domain.GetMoviesByGenresUseCase
-import com.example.projetovicintegrador.domain.GetMoviesUseCase
-import com.example.projetovicintegrador.domain.GetSearchMoviesUseCase
+import com.example.projetovicintegrador.domain.*
 import com.example.projetovicintegrador.model.MovieReference
 import com.example.projetovicintegrador.model.Resource
 import kotlinx.coroutines.launch
@@ -18,7 +15,9 @@ class MainViewModel @ViewModelInject constructor(
     private val getMoviesUseCase: GetMoviesUseCase,
     private val getGenreUseCase: GetGenreUseCase,
     private val getSearchMoviesUseCase: GetSearchMoviesUseCase,
-    private val getMoviesByGenresUseCase: GetMoviesByGenresUseCase
+    private val getMoviesByGenresUseCase: GetMoviesByGenresUseCase,
+    private val getFavoriteMovieUseCase: GetFavoriteMovieUseCase,
+    private val changeFavoriteReferenceMovieUseCase: ChangeFavoriteReferenceMovieUseCase
 ) : ViewModel() {
 
     private val _state = MutableLiveData<Any>()
@@ -91,6 +90,33 @@ class MainViewModel @ViewModelInject constructor(
             _state.value = MainState.LoadMovies(movies.filter { it.genreIds.containsAll(genres) })
         } else {
             getMoviesByGenres(genres)
+        }
+    }
+
+    fun getFavoriteMovie() {
+        //execucao síncrona
+        viewModelScope.launch {
+            when (val result = getFavoriteMovieUseCase.execute()) {
+                is Resource.Value -> {
+                    _state.value = MainState.LoadMovies(result.value)
+                }
+                is Resource.Error -> {
+                    _state.value = result.error!!
+                }
+            }
+        }
+    }
+
+    fun changeFavoriteMovie(movieReference: MovieReference) {
+        viewModelScope.launch {
+            when (val result = changeFavoriteReferenceMovieUseCase.execute(movieReference)) {
+                is Resource.Value -> {
+
+                }
+                is Resource.Error -> {
+                    _state.value = result.error!!
+                }
+            }
         }
     }
 }

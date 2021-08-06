@@ -10,6 +10,7 @@ import com.example.projetovicintegrador.model.MovieReference
 class FilmeAdapter(
     private val films: List<MovieReference>,
     val onClickMovie: (MovieReference) -> Unit,
+    val onClickFavoriteMovie: (MovieReference) -> Unit,
 ) : RecyclerView.Adapter<FilmeAdapter.ViewHolder>() {
 
 //classe view holder pertence a clase filme adapter
@@ -23,6 +24,9 @@ class FilmeAdapter(
                 root.setOnClickListener {
                     onClickMovie.invoke(filme)
                 }
+                icFavorite.setOnClickListener {
+                    onClickFavoriteMovie.invoke(filme)
+                }
             }
         }
     }
@@ -35,9 +39,7 @@ class FilmeAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(films[position])
-
     }
 
     override fun getItemCount() = films.size
-
 }

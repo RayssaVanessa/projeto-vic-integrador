@@ -48,6 +48,7 @@ object MovieMapper {
         val certification =
             pgResult.results.firstOrNull { it.iso == "BR" }?.releaseDates?.firstOrNull()?.certification ?: "?"
         return Filme(
+            id = detailResponse.id,
             nameFilm = detailResponse.title,
             rate = (detailResponse.voteAverage * 10).toInt().toString() + "%",
             title = detailResponse.title,

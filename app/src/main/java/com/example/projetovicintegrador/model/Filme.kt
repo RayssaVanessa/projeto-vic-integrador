@@ -1,6 +1,7 @@
 package com.example.projetovicintegrador.model
 
 data class Filme(
+    val id: Long,
     val nameFilm: String,
     val rate: String,
     val title: String,

@@ -88,9 +88,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateList(movies: List<MovieReference>) {
-        val movieAdapter = FilmeAdapter(movies) {
+        val movieAdapter = FilmeAdapter(movies, {
             openDetailMovie(it)
-        }
+        }, {
+            viewModel.changeFavoriteMovie(it)
+        })
         binding.rvFilm.adapter = movieAdapter
     }
 
@@ -116,9 +118,11 @@ class MainActivity : AppCompatActivity() {
             }
             textTodosFilmes.setOnClickListener {
                 changeStyleForAllMovies()
+                viewModel.getMovies()
             }
             textFavoritos.setOnClickListener {
                 changeStyleForFavoriteMovies()
+                viewModel.getFavoriteMovie()
             }
             campoPesquisa.setOnFocusChangeListener { _, hasFocus ->
                 if (hasFocus) {
