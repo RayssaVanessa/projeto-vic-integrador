@@ -26,6 +26,17 @@ class FilmeAdapter(
                 }
                 icFavorite.setOnClickListener {
                     onClickFavoriteMovie.invoke(filme)
+                    filme.isFavorite = !filme.isFavorite
+                    if (filme.isFavorite) {
+                        icFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
+                    } else {
+                        icFavorite.setImageResource(R.drawable.ic_baseline_favorite_border_24)
+                    }
+                }
+                if (filme.isFavorite) {
+                    icFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
+                } else {
+                    icFavorite.setImageResource(R.drawable.ic_baseline_favorite_border_24)
                 }
             }
         }

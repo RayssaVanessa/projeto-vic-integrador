@@ -5,5 +5,6 @@ data class MovieReference(
     val id: Long,
     val title: String,
     val voteAverage: String,
-    val genreIds: List<Int>
+    val genreIds: List<Int>,
+    var isFavorite: Boolean = false
     )

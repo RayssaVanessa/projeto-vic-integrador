@@ -22,7 +22,8 @@ object MovieMapper {
                 searchMovie.id,
                 searchMovie.title,
                 (searchMovie.voteAverage * 10).toString() + "%",
-                searchMovie.genres
+                searchMovie.genres,
+                false
             )
         }
     }
@@ -32,7 +33,8 @@ object MovieMapper {
             response.id,
             response.title,
             (response.voteAverage * 10).toInt().toString() + "%",
-            response.genreIds
+            response.genreIds,
+            false
         )
     }
 
@@ -54,7 +56,7 @@ object MovieMapper {
             title = detailResponse.title,
             poster = BASE_URL_IMAGE_DETAIL + detailResponse.posterPath,
             favorite = false,
-            genre = detailResponse.genres.map { it.nameGenre },
+            genre = detailResponse.genres.map { GenreReference(it.id,it.nameGenre) },
             year = SimpleDateFormat("yyyy").format(detailResponse.releaseDate),
             biography = detailResponse.overview,
             synopsis = "",

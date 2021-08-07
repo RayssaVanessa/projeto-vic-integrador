@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="searc_whidth">wrap_content</dimen>
+  <dimen name="search_height">wrap_content</dimen>
+  <dimen name="search_marginStart">16dp</dimen>
+  <dimen name="search_marginTop">35dp</dimen>
+</resources>

@@ -25,11 +25,11 @@
 
             <ImageView
                 android:id="@+id/btn_pesquisa"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="35dp"
-                android:background="#0D45494A"
+                android:layout_width="@dimen/searc_whidth"
+                android:layout_height="@dimen/search_height"
+                android:layout_marginStart="@dimen/search_marginStart"
+                android:layout_marginTop="@dimen/search_marginTop"
+                android:background="@color/search_background"
                 android:src="@drawable/ic_baseline_search_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -85,7 +85,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="40dp"
                         android:text="Favoritos"
-                        android:textColor="#AFAFAF"
                         android:textSize="24sp"
                         app:layout_constraintBottom_toBottomOf="@+id/text_todosFilmes"
                         app:layout_constraintEnd_toEndOf="parent"

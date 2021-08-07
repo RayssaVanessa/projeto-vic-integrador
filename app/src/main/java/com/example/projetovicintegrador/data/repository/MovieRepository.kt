@@ -19,7 +19,7 @@ class MovieRepository @Inject constructor(private val remote: MovieRemote) : IMo
     private val savedList: Type = object : TypeToken<List<MovieReference>>() {}.type
     private val gson = GsonBuilder().create()
 
-    companion object{
+    companion object {
         private const val MOVIES = "movies_referencies"
         private const val EMPTY = ""
         private const val NAME = "Vic"
@@ -33,6 +33,7 @@ class MovieRepository @Inject constructor(private val remote: MovieRemote) : IMo
             //chamando a lista de filmes
             val result = remote.getMovies()
             val list = MovieMapper.movieResponseToMovieReference(result)
+            list.forEach{it.isFavorite = isFavorite(it.id)}
             return Resource.build { list }
         } catch (e: Exception) {
             Resource.setError(e)
@@ -84,7 +85,7 @@ class MovieRepository @Inject constructor(private val remote: MovieRemote) : IMo
 
     override suspend fun changeFavoriteReferenceMovie(movieReference: MovieReference): Resource<Exception, Unit> {
         updateFavoriteList(movieReference)
-        return Resource.build {  }
+        return Resource.build { }
     }
 
     override suspend fun getFavoriteMovie(): Resource<Exception, List<MovieReference>> {
@@ -92,8 +93,12 @@ class MovieRepository @Inject constructor(private val remote: MovieRemote) : IMo
     }
 
     override suspend fun changeFavoriteMovie(movie: Filme): Resource<Exception, Unit> {
-        updateFavoriteList(MovieReference(movie.poster, movie.id, movie.title, movie.rate, arrayListOf()))
-        return Resource.build {  }
+        updateFavoriteList(MovieReference(movie.poster,
+            movie.id,
+            movie.title,
+            movie.rate,
+            movie.genre.map { it.id }))
+        return Resource.build { }
     }
 
     private fun getSavedList(): ArrayList<MovieReference> {
@@ -123,6 +128,11 @@ class MovieRepository @Inject constructor(private val remote: MovieRemote) : IMo
 
         val json = gson.toJson(savedMovies)
         sharedPreference.edit().putString(MOVIES, json).apply()
+    }
+
+    private fun isFavorite(id: Long): Boolean {
+        val favorites = getSavedList()
+        return favorites.firstOrNull{it.id == id} != null
     }
 
 }

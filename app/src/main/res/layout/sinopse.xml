@@ -113,7 +113,7 @@
             android:layout_marginStart="16dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
-            android:text="2019"
+            tools:text="2019"
             app:layout_constraintStart_toStartOf="@+id/title_film"
             app:layout_constraintTop_toBottomOf="@+id/title_film" />
 
@@ -122,7 +122,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:text="PG-13"
+            tools:text="PG-13"
             app:layout_constraintBottom_toBottomOf="@+id/year"
             app:layout_constraintStart_toEndOf="@+id/year" />
 
@@ -131,7 +131,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:text="2h 32min"
+            tools:text="2h 32min"
             app:layout_constraintBottom_toBottomOf="@+id/pg"
             app:layout_constraintStart_toEndOf="@+id/pg" />
 
@@ -176,7 +176,7 @@
                 android:layout_gravity="start|left"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
-                android:text="Sinopse"
+                tools:text="Sinopse"
                 android:textColor="#12153D"
                 android:textSize="24sp" />
 
@@ -196,7 +196,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
-                android:text="Elenco"
+                tools:text="Elenco"
                 android:textColor="#12153D"
                 android:textSize="24sp" />
 

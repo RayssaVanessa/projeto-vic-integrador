@@ -51,7 +51,7 @@ class SynopsisActivity : AppCompatActivity() {
             synopsisDescricion.text = movie.biography
             rating.text = movie.rate
             listElenco.adapter = adapterElenco
-            listGenre.adapter = GeneroDetailAdapter(movie.genre)
+            listGenre.adapter = GeneroDetailAdapter(movie.genre.map { it.name })
             Glide.with(this@SynopsisActivity).load(movie.poster).into(imageSynopsis)
             imageView8.setOnClickListener {
                 viewModel.changeFavorite(movie)

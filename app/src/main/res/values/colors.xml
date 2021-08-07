@@ -18,4 +18,5 @@
     <color name="sinopse">#12153D</color>
    <color name="genre_selected">#223324</color>
     <color name="gray">#AFAFAF</color>
+    <color name="search_background">#0D45494A</color>
 </resources>

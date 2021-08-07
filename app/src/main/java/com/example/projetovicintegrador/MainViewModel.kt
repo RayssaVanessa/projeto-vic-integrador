@@ -98,7 +98,8 @@ class MainViewModel @ViewModelInject constructor(
         viewModelScope.launch {
             when (val result = getFavoriteMovieUseCase.execute()) {
                 is Resource.Value -> {
-                    _state.value = MainState.LoadMovies(result.value)
+                    movies = result.value
+                    _state.value = MainState.LoadMovies(movies)
                 }
                 is Resource.Error -> {
                     _state.value = result.error!!

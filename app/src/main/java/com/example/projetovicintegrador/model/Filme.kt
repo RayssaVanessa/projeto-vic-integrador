@@ -8,7 +8,7 @@ data class Filme(
     val poster: String,
     val listElenco: List<Elenco>,
     val favorite: Boolean,
-    val genre: List<String>,
+    val genre: List<GenreReference>,
     val year: String,
     val biography: String,
     val synopsis: String,

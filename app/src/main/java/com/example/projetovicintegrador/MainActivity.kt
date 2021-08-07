@@ -31,9 +31,13 @@ class MainActivity : AppCompatActivity() {
             //observar oq vem da api(state)
             state.observe(this@MainActivity, { handleState(it) })
             getGenres()
-            getMovies()
         }
         configViews()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getMovies()
     }
 
     //alterar a visibilidade e o estilo do layout
