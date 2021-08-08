@@ -17,7 +17,7 @@
         <ImageView
             android:id="@+id/image_synopsis"
             android:layout_width="match_parent"
-            android:layout_height="352dp"
+            android:layout_height="@dimen/heigh_imagine_synopse"
             android:scaleType="centerCrop"
             tools:src="@drawable/john_wick_chapter_three_ver2"
             app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_left_rounded"
-            app:cardElevation="20dp"
+            app:cardElevation="@dimen/cardElevation_synopse"
             app:layout_constraintBottom_toBottomOf="@+id/image_synopsis"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_synopsis">
@@ -45,8 +45,8 @@
                     android:id="@+id/ic_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginEnd="12dp"
+                    android:layout_marginStart="@dimen/ic_star_marginStart"
+                    android:layout_marginEnd="@dimen/ic_star_marginEnd"
                     android:src="@drawable/ic_baseline_star_24"
                     app:layout_constraintBottom_toBottomOf="@+id/avaliacao"
                     app:layout_constraintEnd_toStartOf="@id/rating"
@@ -57,10 +57,10 @@
                     android:id="@+id/rating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="23dp"
-                    android:text="81%"
-                    android:textColor="#12153D"
-                    android:textSize="16sp"
+                    android:layout_marginTop="@dimen/rating_marginTop"
+                    tools:text="81%"
+                    android:textColor="@color/keyboard"
+                    android:textSize="@dimen/rating_textSize"
                     app:layout_constraintStart_toStartOf="@id/avaliacao"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,10 +68,10 @@
                     android:id="@+id/avaliacao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginEnd="@dimen/txtAvaliacao_marginEnd"
+                    android:layout_marginBottom="@dimen/txtAvaliacao_marginBotton"
                     android:text="Avaliacao\ndos usuarios"
-                    android:textColor="#9A9BB2"
+                    android:textColor="@color/color_funcao_ator"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/rating" />
@@ -83,7 +83,7 @@
             android:id="@+id/back_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="16dp"
+            android:padding="@dimen/padding_image_back_icon"
             android:src="@drawable/ic_baseline_keyboard_arrow_left_24"
             app:layout_constraintHorizontal_bias="0.067"
             app:layout_constraintStart_toStartOf="parent"
@@ -94,25 +94,25 @@
             android:id="@+id/title_film"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="@dimen/titulo_filme_marginStart"
+            android:layout_marginEnd="@dimen/titulo_filme_marginEnd"
+            android:layout_marginTop="@dimen/titulo_filme_marginTop"
             android:gravity="start"
-            android:maxWidth="150dp"
-            android:textColor="#12153D"
-            android:textSize="24sp"
+            android:maxWidth="@dimen/titulo_filme_maxWhidth"
+            android:textColor="@color/keyboard"
+            android:textSize="@dimen/titulo_filme_txt_size"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/imageView8"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView"
-            tools:text="Ford x ferrari" />
+            tools:text="@string/titulo_filme" />
 
         <TextView
             android:id="@+id/year"
             android:layout_width="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/year_marginStart"
             android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="@dimen/year_marginTop"
             tools:text="2019"
             app:layout_constraintStart_toStartOf="@+id/title_film"
             app:layout_constraintTop_toBottomOf="@+id/title_film" />
@@ -130,17 +130,16 @@
             android:id="@+id/duration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="@dimen/duration_marginStrat"
             tools:text="2h 32min"
             app:layout_constraintBottom_toBottomOf="@+id/pg"
             app:layout_constraintStart_toEndOf="@+id/pg" />
-
 
         <ImageView
             android:id="@+id/imageView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="@dimen/imagView8_marginEnd"
             android:src="@drawable/ic_baseline_favorite_border_24"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@id/title_film"
@@ -149,15 +148,15 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_genre"
             android:layout_width="match_parent"
-            android:layout_marginStart="16dp"
-            android:layout_height="56dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="@dimen/list_genre_marginStart"
+            android:layout_height="@dimen/list_genre_height"
+            android:layout_marginTop="@dimen/list_genre_marginTop"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/year"
-            tools:listitem="@layout/item_sinops" />
+            tools:listitem="@layout/item_sinops"/>
 
 
         <LinearLayout
@@ -172,32 +171,32 @@
             <TextView
                 android:id="@+id/text_sinopse"
                 android:layout_width="wrap_content"
-                android:layout_height="29dp"
+                android:layout_height="@dimen/txt_synopse_height"
                 android:layout_gravity="start|left"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                tools:text="Sinopse"
-                android:textColor="#12153D"
-                android:textSize="24sp" />
+                android:layout_marginStart="@dimen/txt_synopse_marginStart"
+                android:layout_marginTop="@dimen/txt_synopse_marginTop"
+                tools:text="@string/synopse"
+                android:textColor="@color/keyboard"
+                android:textSize="@dimen/txt_synopse_size" />
 
             <TextView
                 android:id="@+id/synopsis_descricion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp"
-                android:textColor="#737599"
-                android:textSize="16sp"
-                tools:text="American car designer Carroll Shelby and driver Kn Miles battle corporate interference and the laws of physics to build a revolutionary race car for Ford in order." />
+                android:layout_marginHorizontal="@dimen/txt_description_marginHoriz"
+                android:layout_marginTop="@dimen/txt_description_marginTop"
+                android:textColor="@color/color_sistema_falhou"
+                android:textSize="@dimen/txt_description_size"
+                tools:text="@string/description_filme"/>
 
             <TextView
                 android:id="@+id/elenco"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/list_elenco_marginStart"
                 android:layout_marginTop="24dp"
                 tools:text="Elenco"
-                android:textColor="#12153D"
+                android:textColor="@color/keyboard"
                 android:textSize="24sp" />
 
             <androidx.recyclerview.widget.RecyclerView

@@ -14,8 +14,8 @@
 
         <ImageView
             android:id="@+id/item_elenco"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="@dimen/image_whidth_item_elenco"
+            android:layout_height="@dimen/image_height_elenco"
             android:background="@drawable/cast_format"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -29,18 +29,18 @@
         android:id="@+id/nome_elenco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Rayssa"
-        android:textColor="#12153D"
-        android:textSize="16sp" />
+        android:layout_marginTop="@dimen/margin_top_nome_ator"
+        android:text="@string/nome_ator"
+        android:textColor="@color/sinopse"
+        android:textSize="@dimen/size_nome_ator" />
 
     <TextView
         android:id="@+id/funcao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Diretor"
-        android:textColor="#9A9BB2"
-        android:textSize="16sp" />
+        android:layout_marginTop="@dimen/marginTop_funcao_elenco"
+        android:text="@string/funcao_ator"
+        android:textColor="@color/color_funcao_ator"
+        android:textSize="@dimen/size_funcao_elenco" />
 
 </LinearLayout>

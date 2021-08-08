@@ -2,4 +2,21 @@
     <string name="app_name">projetoVicIntegrador</string>
     <string name="movie_genre">Ação</string>
     <string name="movie_search">Pesquisar por um filme...</string>
+    <string name="titulo_filme">Ford x Ferrari</string>
+    <string name="synopse">Sinopse</string>
+    <string name="description_filme">American car designer Carroll Shelby and driver Kn Miles battle corporate interference and the laws of physics to build a revolutionary race car for Ford in order." </string>
+    <string name="O_sistema_falhou">O sistema falhou</string>
+    <string name="msg_falha">Por algum motivo, não foi possível processar com essa solicitação. Por favor, tente novamente</string>
+    <string name="tentar_novamente">Tentar novamente</string>
+    <string name="esse_filme_nao_existe">Esse filme não existe</string>
+    <string name="msg_filme_nao_existe">Não conseguimos encontrar o filme que voce procura. Por favor, refaça sua busca."</string>
+    <string name="todos_os_filmes">Todos os filmes</string>
+    <string name="favortitos">Favoritos</string>
+    <string name="modo_pesquisa">Modo pesquisa</string>
+    <string name="voltar_ao_inicio">Voltar ao início</string>
+    <string name="nome_ator">Rayssa</string>
+    <string name="funcao_ator">Diretor</string>
+    <string name="Cruella_nome_teste">Cruella nome teste</string>
+
+
 </resources>

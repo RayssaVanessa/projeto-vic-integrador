@@ -8,20 +8,20 @@
 
     <ImageView
         android:id="@+id/ic_close"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_margin="16dp"
+        android:layout_width="@dimen/whidth_ic_close"
+        android:layout_height="@dimen/height_ic_close"
+        android:layout_margin="@dimen/margin_ic_close"
         android:src="@drawable/ic_baseline_close_24"
         app:layout_constraintEnd_toEndOf="@+id/msg_erro"
         app:layout_constraintStart_toEndOf="@+id/msg_erro"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="#000000" />
+        app:tint="@color/close" />
 
     <ImageView
         android:id="@+id/icone_falha"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="180dp"
+        android:layout_width="@dimen/whidth_ícone_falha"
+        android:layout_height="@dimen/height_icone_falha"
+        android:layout_marginTop="@dimen/mgTop_icone_falha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -46,14 +46,14 @@
 
     <TextView
         android:id="@+id/msg_erro"
-        android:layout_width="350dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="@dimen/whidth_msg_error"
+        android:layout_height="@dimen/height_msg_erro"
+        android:layout_marginTop="@dimen/mgTop_msg_erro"
+        android:layout_marginEnd="@dimen/mgEnd_msg_erro"
         android:gravity="center"
         android:text="Por algum motivo, não foi possível processar com essa solicitação. Por favor, tente novamente."
-        android:textColor="#737599"
-        android:textSize="16sp"
+        android:textColor="@color/color_sistema_falhou"
+        android:textSize="@dimen/size_msg_erro"
         app:layout_constraintEnd_toEndOf="@+id/textView6"
         app:layout_constraintStart_toStartOf="@+id/icone_falha"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -63,10 +63,10 @@
         android:id="@+id/tentar_novamente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
+        android:layout_margin="@dimen/mg_tentar_novamente"
         android:text="Tentar novamente"
-        android:textColor="#11C76F"
-        android:textSize="24sp"
+        android:textColor="@color/favorite"
+        android:textSize="@dimen/size_tentar_novamente"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/icone_rule"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,10 +74,10 @@
 
     <View
         android:id="@+id/icone_rule"
-        android:layout_width="40dp"
-        android:layout_height="6dp"
-        android:layout_marginTop="12dp"
-        android:background="#11C76F"
+        android:layout_width="@dimen/whidth_icone_rule"
+        android:layout_height="@dimen/height_icone_rule"
+        android:layout_marginTop="@dimen/mgTop_icone_rule"
+        android:background="@color/favorite"
         android:src="@drawable/ic_baseline_horizontal_rule_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

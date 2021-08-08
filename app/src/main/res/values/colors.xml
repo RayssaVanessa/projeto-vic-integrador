@@ -19,4 +19,8 @@
    <color name="genre_selected">#223324</color>
     <color name="gray">#AFAFAF</color>
     <color name="search_background">#0D45494A</color>
+    <color name="color_sistema_falhou">#737599</color>
+    <color name="close">#000000</color>
+    <color name="color_funcao_ator">#9A9BB2</color>
+    <color name="color_item_genre">#434670</color>
 </resources>
