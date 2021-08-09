@@ -38,6 +38,8 @@ class FilmeAdapter(
                 } else {
                     icFavorite.setImageResource(R.drawable.ic_baseline_favorite_border_24)
                 }
+
+
             }
         }
     }

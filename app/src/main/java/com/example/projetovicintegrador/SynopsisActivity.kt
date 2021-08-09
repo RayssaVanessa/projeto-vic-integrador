@@ -16,8 +16,6 @@ class SynopsisActivity : AppCompatActivity() {
     }
 
     private val viewModel: DetailViewModel by viewModels()
-
-
     // declarando xml numa classe
     private lateinit var binding: SinopseBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,6 +53,9 @@ class SynopsisActivity : AppCompatActivity() {
             Glide.with(this@SynopsisActivity).load(movie.poster).into(imageSynopsis)
             imageView8.setOnClickListener {
                 viewModel.changeFavorite(movie)
+            }
+            binding.backIcon.setOnClickListener {
+                finish()
             }
         }
         //Vou popular os campos do xml

@@ -12,8 +12,7 @@
         android:layout_height="@dimen/height_ic_close"
         android:layout_margin="@dimen/margin_ic_close"
         android:src="@drawable/ic_baseline_close_24"
-        app:layout_constraintEnd_toEndOf="@+id/msg_erro"
-        app:layout_constraintStart_toEndOf="@+id/msg_erro"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/close" />
 
@@ -33,29 +32,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="91dp"
         android:layout_margin="34dp"
+        android:layout_marginTop="66dp"
         android:text="O sistema falhou"
         android:textColor="#223334"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/icone_falha"
-        app:layout_constraintStart_toStartOf="@+id/icone_falha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/icone_falha" />
 
 
     <TextView
         android:id="@+id/msg_erro"
-        android:layout_width="@dimen/whidth_msg_error"
+        android:layout_width="wrap_content"
         android:layout_height="@dimen/height_msg_erro"
-        android:layout_marginTop="@dimen/mgTop_msg_erro"
-        android:layout_marginEnd="@dimen/mgEnd_msg_erro"
+        android:layout_marginTop="11dp"
         android:gravity="center"
         android:text="Por algum motivo, não foi possível processar com essa solicitação. Por favor, tente novamente."
         android:textColor="@color/color_sistema_falhou"
         android:textSize="@dimen/size_msg_erro"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
-        app:layout_constraintStart_toStartOf="@+id/icone_falha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 
@@ -70,7 +68,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/icone_rule"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/msg_erro" />
 
     <View
         android:id="@+id/icone_rule"
@@ -82,5 +82,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="40dp" />
+        android:layout_marginBottom="12dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

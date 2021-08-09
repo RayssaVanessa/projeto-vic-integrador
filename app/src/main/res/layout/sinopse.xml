@@ -175,7 +175,7 @@
                 android:layout_gravity="start|left"
                 android:layout_marginStart="@dimen/txt_synopse_marginStart"
                 android:layout_marginTop="@dimen/txt_synopse_marginTop"
-                tools:text="@string/synopse"
+                android:text="@string/synopse"
                 android:textColor="@color/keyboard"
                 android:textSize="@dimen/txt_synopse_size" />
 
@@ -195,7 +195,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/list_elenco_marginStart"
                 android:layout_marginTop="24dp"
-                tools:text="Elenco"
+                android:text="Elenco"
                 android:textColor="@color/keyboard"
                 android:textSize="24sp" />
 
