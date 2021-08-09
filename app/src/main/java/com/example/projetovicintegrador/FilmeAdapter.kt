@@ -25,8 +25,8 @@ class FilmeAdapter(
                     onClickMovie.invoke(filme)
                 }
                 icFavorite.setOnClickListener {
-                    onClickFavoriteMovie.invoke(filme)
                     filme.isFavorite = !filme.isFavorite
+                    onClickFavoriteMovie.invoke(filme)
                     if (filme.isFavorite) {
                         icFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
                     } else {

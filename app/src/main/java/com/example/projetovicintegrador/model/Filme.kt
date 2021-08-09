@@ -14,4 +14,5 @@ data class Filme(
     val synopsis: String,
     val time: String,
     val pg: String,
+    var isFavorite:Boolean = false
 )

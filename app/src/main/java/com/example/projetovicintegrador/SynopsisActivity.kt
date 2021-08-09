@@ -30,6 +30,7 @@ class SynopsisActivity : AppCompatActivity() {
         intent.extras?.getLong(ID_ARG)?.let {
             viewModel.getDetail(it)
         }
+
     }
 
     private fun handleState(state: Any) {
@@ -53,6 +54,17 @@ class SynopsisActivity : AppCompatActivity() {
             Glide.with(this@SynopsisActivity).load(movie.poster).into(imageSynopsis)
             imageView8.setOnClickListener {
                 viewModel.changeFavorite(movie)
+                if (movie.isFavorite) {
+                    imageView8.setImageResource(R.drawable.ic_baseline_favorite_24)
+                } else {
+                    imageView8.setImageResource(R.drawable.ic_baseline_favorite_border_24)
+                }
+            }
+
+            if (movie.isFavorite) {
+                imageView8.setImageResource(R.drawable.ic_baseline_favorite_24)
+            } else {
+                imageView8.setImageResource(R.drawable.ic_baseline_favorite_border_24)
             }
             binding.backIcon.setOnClickListener {
                 finish()

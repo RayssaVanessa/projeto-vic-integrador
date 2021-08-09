@@ -33,7 +33,7 @@ class MovieRepository @Inject constructor(private val remote: MovieRemote) : IMo
             //chamando a lista de filmes
             val result = remote.getMovies()
             val list = MovieMapper.movieResponseToMovieReference(result)
-            list.forEach{it.isFavorite = isFavorite(it.id)}
+            list.forEach { it.isFavorite = isFavorite(it.id) }
             return Resource.build { list }
         } catch (e: Exception) {
             Resource.setError(e)
@@ -45,6 +45,7 @@ class MovieRepository @Inject constructor(private val remote: MovieRemote) : IMo
             //chamando a lista de filmes
             val result = remote.getSearchMovie(title)
             val list = MovieMapper.searchMovieResponseToMovieReference(result)
+            list.forEach { it.isFavorite = isFavorite(it.id) }
             return Resource.build { list }
         } catch (e: Exception) {
             Resource.setError(e)
@@ -55,6 +56,7 @@ class MovieRepository @Inject constructor(private val remote: MovieRemote) : IMo
         return try {
             val result = remote.getMoviesByGenres(ids)
             val list = MovieMapper.searchMovieResponseToMovieReference(result)
+            list.forEach { it.isFavorite = isFavorite(it.id) }
             return Resource.build { list }
         } catch (e: Exception) {
             Resource.setError(e)
@@ -77,6 +79,7 @@ class MovieRepository @Inject constructor(private val remote: MovieRemote) : IMo
             val castResult = remote.getCast(id)
             val pgResult = remote.getPgMovies(id)
             val filme = MovieMapper.createFilme(detailResult, castResult, pgResult)
+            filme.isFavorite = isFavorite(filme.id)
             return Resource.build { filme }
         } catch (e: Exception) {
             Resource.setError(e)
@@ -132,7 +135,7 @@ class MovieRepository @Inject constructor(private val remote: MovieRemote) : IMo
 
     private fun isFavorite(id: Long): Boolean {
         val favorites = getSavedList()
-        return favorites.firstOrNull{it.id == id} != null
+        return favorites.firstOrNull { it.id == id } != null
     }
 
 }
