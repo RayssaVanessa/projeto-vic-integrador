@@ -1,4 +1,4 @@
-package com.example.projetovicintegrador
+package com.example.projetovicintegrador.ui.main
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,9 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
-import com.example.projetovicintegrador.SynopsisActivity.Companion.ID_ARG
+import com.example.projetovicintegrador.R
+import com.example.projetovicintegrador.ui.detail.SynopsisActivity
+import com.example.projetovicintegrador.ui.detail.SynopsisActivity.Companion.ID_ARG
 import com.example.projetovicintegrador.databinding.ActivityMainBinding
 import com.example.projetovicintegrador.model.GenreReference
 import com.example.projetovicintegrador.model.MovieReference

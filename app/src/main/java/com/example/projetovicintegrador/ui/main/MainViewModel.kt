@@ -1,6 +1,5 @@
-package com.example.projetovicintegrador
+package com.example.projetovicintegrador.ui.main
 
-import androidx.core.view.isVisible
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

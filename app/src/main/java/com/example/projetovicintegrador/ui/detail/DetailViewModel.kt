@@ -1,4 +1,4 @@
-package com.example.projetovicintegrador
+package com.example.projetovicintegrador.ui.detail
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
@@ -6,8 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.projetovicintegrador.domain.ChangeFavoriteMovieUseCase
 import com.example.projetovicintegrador.domain.GetDetailUseCase
-import com.example.projetovicintegrador.domain.GetGenreUseCase
-import com.example.projetovicintegrador.domain.GetMoviesUseCase
 import com.example.projetovicintegrador.model.Filme
 import com.example.projetovicintegrador.model.Resource
 import kotlinx.coroutines.launch

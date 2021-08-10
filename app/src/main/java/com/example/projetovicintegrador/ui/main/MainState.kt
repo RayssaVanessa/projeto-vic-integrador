@@ -1,4 +1,4 @@
-package com.example.projetovicintegrador
+package com.example.projetovicintegrador.ui.main
 
 import com.example.projetovicintegrador.model.GenreReference
 import com.example.projetovicintegrador.model.MovieReference

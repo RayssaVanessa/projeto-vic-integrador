@@ -1,10 +1,10 @@
-package com.example.projetovicintegrador
+package com.example.projetovicintegrador.ui.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.projetovicintegrador.R
 import com.example.projetovicintegrador.databinding.ItemGenreBinding
 import com.example.projetovicintegrador.model.GenreReference
 

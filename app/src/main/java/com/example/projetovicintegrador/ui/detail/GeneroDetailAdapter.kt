@@ -1,10 +1,9 @@
-package com.example.projetovicintegrador
+package com.example.projetovicintegrador.ui.detail
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projetovicintegrador.databinding.ItemSinopsBinding
-import com.example.projetovicintegrador.model.GenreReference
 
 class GeneroDetailAdapter(private val genreFilm: List<String>) :
     RecyclerView.Adapter<GeneroDetailAdapter.ViewHolder>() {
