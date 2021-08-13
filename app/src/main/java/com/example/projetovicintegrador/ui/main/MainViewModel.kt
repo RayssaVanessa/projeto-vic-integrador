@@ -25,7 +25,7 @@ class MainViewModel @ViewModelInject constructor(
     private var movies = listOf<MovieReference>()
 
     fun getMovies() {
-        //execucao síncrona
+        //execucao assíncrona
         viewModelScope.launch {
             when (val result = getMoviesUseCase.execute()) {
                 is Resource.Value -> {
@@ -71,7 +71,7 @@ class MainViewModel @ViewModelInject constructor(
     }
 
     fun getGenres() {
-        //execucao sincrona
+        //execucao assíncrona
         viewModelScope.launch {
             when (val result = getGenreUseCase.execute()) {
                 is Resource.Value -> {
@@ -93,7 +93,7 @@ class MainViewModel @ViewModelInject constructor(
     }
 
     fun getFavoriteMovie() {
-        //execucao síncrona
+        //execucao assíncrona
         viewModelScope.launch {
             when (val result = getFavoriteMovieUseCase.execute()) {
                 is Resource.Value -> {
