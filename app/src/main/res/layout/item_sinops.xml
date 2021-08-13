@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/item_activity_material_corner"
+    app:cardBackgroundColor="@color/white"
+    app:strokeWidth="@dimen/item_activity_material_strokeWidth"
+    app:strokeColor="@color/sinopse"
+    android:layout_margin="@dimen/item_activity_margin"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/item_genre"
+        android:id="@+id/item_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:background="@drawable/item_synopsis"
+        android:layout_margin="@dimen/item_activity_margin"
+        android:paddingHorizontal="@dimen/item_activity_padding"
         android:gravity="center"
-        android:textColor="#434670"
+        android:textColor="@color/sinopse"
         android:text="@string/movie_genre"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

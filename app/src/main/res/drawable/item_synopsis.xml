@@ -6,7 +6,7 @@
     <stroke android:width="1dip"
         android:color="#12153D"/>
     <size
-        android:width="105dp"
+        android:width="115dp"
         android:height="40dp"
         android:viewportWidth="105"
         android:viewportHeight="40" />

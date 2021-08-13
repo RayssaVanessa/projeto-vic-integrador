@@ -1,17 +1,17 @@
-package com.example.projetovicintegrador
+package com.example.projetovicintegrador.ui.detail
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projetovicintegrador.databinding.ItemSinopsBinding
 
-class GenreAdapter(private val genreFilm: List<String>) :
-    RecyclerView.Adapter<GenreAdapter.ViewHolder>() {
+class GeneroDetailAdapter(private val genreFilm: List<String>) :
+    RecyclerView.Adapter<GeneroDetailAdapter.ViewHolder>() {
 
     class ViewHolder(private val bindGenre: ItemSinopsBinding) :
         RecyclerView.ViewHolder(bindGenre.root) {
         fun genre(itemGenreBinding: String) {
-            bindGenre.itemGenre.text = itemGenreBinding
+            bindGenre.itemActivity.text = itemGenreBinding
         }
     }
 

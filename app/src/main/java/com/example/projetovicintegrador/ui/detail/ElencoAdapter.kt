@@ -1,4 +1,4 @@
-package com.example.projetovicintegrador
+package com.example.projetovicintegrador.ui.detail
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

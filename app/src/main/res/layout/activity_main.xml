@@ -3,116 +3,199 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/backgroundColor"
-        tools:context=".MainActivity">
+        android:orientation="vertical">
 
+        <include
+            android:id="@+id/include_layout_error"
+            layout="@layout/errogenerico"
+            android:visibility="gone" />
 
-        <ImageView
-            android:id="@+id/btn_pesquisa"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="35dp"
-            android:background="#0D45494A"
-            android:src="@drawable/ic_baseline_search_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/campo_pesquisa"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="40dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="49dp"
-            android:ems="16"
-            android:hint="@string/movie_search"
-            android:inputType="text"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_pesquisa"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btn_pesquisa"
-            app:layout_constraintTop_toTopOf="@+id/btn_pesquisa" />
-
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Todos os filmes"
-            android:textColor="#223334"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="@+id/btn_pesquisa"
-            app:layout_constraintTop_toBottomOf="@+id/campo_pesquisa">
-
-        </TextView>
-
-        <TextView
-            android:id="@+id/text_favoritos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="40dp"
-            android:text="Favoritos"
-            android:textColor="#223334"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.529" />
-
-
-        <View
-            android:id="@+id/view"
-            android:layout_width="40dp"
-            android:layout_height="6dp"
-            android:layout_marginTop="17dp"
-            android:background="#11C76F"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-
-        <View
-            android:layout_width="40dp"
-            android:layout_height="6dp"
-            android:layout_marginTop="17dp"
-            android:background="#11C76F"
-            app:layout_constraintStart_toStartOf="@+id/text_favoritos"
-            app:layout_constraintTop_toBottomOf="@+id/text_favoritos" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/Rv_genre"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="332dp"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.321"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view"
-            app:layout_constraintVertical_bias="0.117"
-            tools:listitem="@layout/item_genre" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_film"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_movies"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Rv_genre"
-            tools:listitem="@layout/item_filme" />
+            android:background="@color/backgroundColor"
+            tools:context=".ui.main.MainActivity">
+
+            <ImageView
+                android:id="@+id/btn_pesquisa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/search_marginStart"
+                android:layout_marginTop="@dimen/search_marginTop"
+                android:background="@color/search_background"
+                android:src="@drawable/ic_baseline_search_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/campo_pesquisa"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/cp_mg_vertival"
+                android:layout_marginStart="@dimen/cp_mg_Start"
+                android:layout_marginEnd="@dimen/cp_mg_end"
+                android:ems="16"
+                android:hint="@string/movie_search"
+                android:inputType="text"
+                android:textSize="@dimen/cp_size"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_pesquisa"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_pesquisa"
+                app:layout_constraintTop_toTopOf="@+id/btn_pesquisa" />
+
+            <LinearLayout
+                android:id="@+id/container_build"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="@+id/btn_pesquisa"
+                app:layout_constraintTop_toBottomOf="@+id/campo_pesquisa">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/container_options"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@+id/btn_pesquisa"
+                    app:layout_constraintTop_toBottomOf="@+id/campo_pesquisa">
+
+                    <TextView
+                        android:id="@+id/text_todosFilmes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/mg_star_todos_os_filmes"
+                        android:layout_marginTop="24dp"
+                        android:text="@string/todos_os_filmes"
+                        android:textColor="@color/Todos_filmes"
+                        android:textSize="@dimen/text_size"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/text_favoritos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/mg_end_favorites"
+                        android:text="@string/favortitos"
+                        android:textSize="@dimen/size_favorites"
+                        app:layout_constraintBottom_toBottomOf="@+id/text_todosFilmes"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/text_todosFilmes"
+                        app:layout_constraintVertical_bias="0.529" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="@dimen/whidth_view_green"
+                        android:layout_height="@dimen/height_view_green"
+                        android:layout_marginTop="@dimen/mg_top_view_green"
+                        android:background="#11C76F"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/text_todosFilmes"
+                        app:layout_constraintTop_toBottomOf="@+id/text_todosFilmes" />
+
+                    <View
+                        android:id="@+id/view_boton_favorite"
+                        android:layout_width="@dimen/whidth_view_green"
+                        android:layout_height="@dimen/height_view_green"
+                        android:layout_marginTop="@dimen/mg_top_view_green"
+                        android:background="#11C76F"
+                        android:visibility="invisible"
+                        app:layout_constraintStart_toStartOf="@+id/text_favoritos"
+                        app:layout_constraintTop_toBottomOf="@+id/text_favoritos" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:id="@+id/container_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/mg_to_container_search"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/padding_hor_container"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <View
+                        android:layout_width="@dimen/whidth_view_green"
+                        android:layout_height="@dimen/height_view_green"
+                        android:background="@color/ic_baseline_horizontal_rule_24.xml"
+                        android:src="@drawable/ic_baseline_horizontal_rule_24" />
+
+                    <TextView
+                        android:layout_width="@dimen/whidth_md_pesquisa"
+                        android:layout_height="@dimen/height_md_pesquisa"
+                        android:layout_marginTop="@dimen/mg_top_mg_pesquisa"
+                        android:layout_marginEnd="@dimen/margEnd_md_pesquisa"
+                        android:text="@string/modo_pesquisa"
+                        android:textColor="@color/Todos_filmes"
+                        android:textSize="@dimen/size_md_pesquisa"
+                        android:textStyle="bold"
+                        tools:layout_editor_absoluteY="107dp" />
+
+                    <TextView
+                        android:id="@+id/voltar_inicio"
+                        android:layout_width="@dimen/whidth_voltar_inicio"
+                        android:layout_height="@dimen/height_voltar_início"
+                        android:text="@string/voltar_ao_inicio"
+                        android:textColor="@color/favorite"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/Rv_genre"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/star_rv_gente"
+                android:layout_marginTop="@dimen/top_rv_genre"
+                android:layout_marginBottom="@dimen/mgBotton_rv_genre"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.321"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/container_build"
+                app:layout_constraintVertical_bias="0.117"
+                tools:listitem="@layout/item_genre" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_film"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Rv_genre"
+                tools:listitem="@layout/item_filme" />
+
+            <LinearLayout
+                android:id="@+id/container_no_movies"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Rv_genre">
+
+                <include layout="@layout/sembusca" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
 </ScrollView>
